@@ -1,10 +1,15 @@
-export default function Stats() {
+export default function Stats({
+	numOfChars,
+	numOfWords,
+	remainingInstaChars,
+	remainingFbChars,
+}) {
 	return (
 		<section className="stats">
-			<Stat statNumber={0} statName="words" />
-			<Stat statNumber={0} statName="characters" />
-			<Stat statNumber={280} statName="instagram" />
-			<Stat statNumber={2200} statName="facebook" />
+			<Stat statNumber={numOfWords} statName="words" />
+			<Stat statNumber={numOfChars} statName="characters" />
+			<Stat statNumber={remainingInstaChars} statName="instagram" />
+			<Stat statNumber={remainingFbChars} statName="facebook" />
 		</section>
 	);
 }

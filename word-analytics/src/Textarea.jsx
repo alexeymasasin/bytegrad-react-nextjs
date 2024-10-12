@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import Warning from './Warning';
 
-export default function Textarea() {
+export default function Textarea({ text, setText }) {
 	const [warnMsg, setWarnMsg] = useState('');
-	const [text, setText] = useState('');
 
 	const handleChange = (e) => {
 		let newText = e.target.value;
