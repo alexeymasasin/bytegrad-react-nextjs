@@ -8,7 +8,11 @@ export default function AddItemForm({ setItems }) {
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
-				const newItem = { name: inputValue, packed: false, id: 4 };
+				const newItem = {
+					name: inputValue,
+					packed: false,
+					id: new Date().getTime(),
+				};
 
 				setItems((prev) => {
 					return [...prev, newItem];
