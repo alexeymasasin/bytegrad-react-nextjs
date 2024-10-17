@@ -1,11 +1,5 @@
+import { buttonsArray } from '../lib/constants';
 import Button from './Button';
-
-const buttonsArray = [
-	'Mark all as complete',
-	'Mark all as incomplete',
-	'Reset',
-	'Remove all items',
-];
 
 export default function ButtonGroup() {
 	return (
