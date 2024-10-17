@@ -1,27 +1,21 @@
 import { useRef, useState } from 'react';
 import Button from './Button';
 
-export default function AddItemForm({ setItems }) {
+export default function AddItemForm({ addItems }) {
 	const [inputValue, setInputValue] = useState('');
 	const inputRef = useRef();
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 
-		const newItem = {
-			name: inputValue,
-			packed: false,
-			id: new Date().getTime(),
-		};
-
+		// basic validation
 		if (!inputValue) {
 			inputRef.current.focus();
 			return;
 		}
 
-		setItems((prev) => {
-			return [...prev, newItem];
-		});
+		// handling the change, nulling the input & focus back
+		addItems(inputValue);
 		setInputValue('');
 		inputRef.current.focus();
 	};
