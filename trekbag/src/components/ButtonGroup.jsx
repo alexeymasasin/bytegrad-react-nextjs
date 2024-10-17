@@ -1,12 +1,18 @@
 import Button from './Button';
 
+const buttonsArray = [
+	'Mark all as complete',
+	'Mark all as incomplete',
+	'Reset',
+	'Remove all items',
+];
+
 export default function ButtonGroup() {
 	return (
 		<section className="button-group">
-			<Button type="secondary" text="Mark all as complete" />
-			<Button type="secondary" text="Mark all as incomplete" />
-			<Button type="secondary" text="Reset" />
-			<Button type="secondary" text="Remove all items" />
+			{buttonsArray.map((text) => (
+				<Button type="secondary" text={text} key={text} />
+			))}
 		</section>
 	);
 }
