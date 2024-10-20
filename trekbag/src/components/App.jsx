@@ -67,7 +67,7 @@ function App() {
 		<>
 			<BackgroundHeading />
 			<main>
-				<Header />
+				<Header items={items} />
 				<ItemList
 					items={items}
 					deleteItem={removeItemHandler}
