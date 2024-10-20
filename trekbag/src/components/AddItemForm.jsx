@@ -30,7 +30,7 @@ export default function AddItemForm({ addItems }) {
 				onChange={(e) => setInputValue(e.target.value)}
 				autoFocus
 			/>
-			<Button type="primary" text="Add to list" />
+			<Button buttonType="primary">Add to list</Button>
 		</form>
 	);
 }
