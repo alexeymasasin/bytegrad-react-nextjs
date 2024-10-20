@@ -1,6 +1,9 @@
+import EmptyView from './EmptyView';
+
 export default function ItemList({ items, deleteItem, toggleItem }) {
 	return (
-		<ul>
+		<ul className="item-list">
+			{items.length === 0 && <EmptyView />}
 			{items.map((item) => (
 				<Item
 					toggleItem={toggleItem}
