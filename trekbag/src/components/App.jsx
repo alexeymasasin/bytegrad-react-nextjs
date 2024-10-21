@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { initialItems } from '../lib/constants';
 import BackgroundHeading from './BackgroundHeading';
 import Footer from './Footer';
@@ -7,7 +7,12 @@ import ItemList from './ItemList';
 import Sidebar from './Sidebar';
 
 function App() {
-	const [items, setItems] = useState(initialItems);
+	const localStorageItems = JSON.parse(localStorage.getItem('items'));
+	const [items, setItems] = useState(localStorageItems || initialItems);
+
+	useEffect(() => {
+		localStorage.setItem('items', JSON.stringify(items));
+	}, [items]);
 
 	const addItemHandler = (newItemText) => {
 		// creating a new item basing on input data
