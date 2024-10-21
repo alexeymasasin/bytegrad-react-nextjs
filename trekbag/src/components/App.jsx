@@ -7,8 +7,9 @@ import ItemList from './ItemList';
 import Sidebar from './Sidebar';
 
 function App() {
-	const localStorageItems = JSON.parse(localStorage.getItem('items'));
-	const [items, setItems] = useState(localStorageItems || initialItems);
+	const [items, setItems] = useState(() => {
+		return JSON.parse(localStorage.getItem('items')) || initialItems;
+	});
 
 	useEffect(() => {
 		localStorage.setItem('items', JSON.stringify(items));
