@@ -4,6 +4,14 @@ import { MAX_CHARACTERS } from './../../lib/constants';
 export default function FeedbackForm() {
 	const [text, setText] = useState('');
 
+	const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		const newText = e.target.value;
+		if (newText.length > MAX_CHARACTERS) {
+			return;
+		}
+		setText(newText);
+	};
+
 	return (
 		<form className="form">
 			<textarea
@@ -12,13 +20,7 @@ export default function FeedbackForm() {
 				placeholder="*placeholder*"
 				spellCheck={false}
 				value={text}
-				onChange={(e) => {
-					const newText = e.target.value;
-					if (newText.length > MAX_CHARACTERS) {
-						return;
-					}
-					setText(newText);
-				}}
+				onChange={handleChange}
 			></textarea>
 			<label htmlFor="feedback-textarea">
 				Enter your feedback here, remember to #hashtag the company
