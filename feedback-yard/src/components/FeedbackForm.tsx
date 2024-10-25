@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import { MAX_CHARACTERS } from './../../lib/constants';
+
 export default function FeedbackForm() {
+	const [text, setText] = useState('');
+
 	return (
 		<form className="form">
 			<textarea
@@ -6,13 +11,17 @@ export default function FeedbackForm() {
 				id="feedback-textarea"
 				placeholder="*placeholder*"
 				spellCheck={false}
+				value={text}
+				onChange={(e) => {
+					setText(e.target.value);
+				}}
 			></textarea>
 			<label htmlFor="feedback-textarea">
 				Enter your feedback here, remember to #hashtag the company
 			</label>
 
 			<div>
-				<p className="u-italic">150</p>
+				<p className="u-italic">{MAX_CHARACTERS - text.length}</p>
 				<button>
 					<span>Submit</span>
 				</button>
