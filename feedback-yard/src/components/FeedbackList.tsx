@@ -15,13 +15,6 @@ const feedbackItems = [
 		text: 'bla bla bla',
 		daysAgo: 4,
 	},
-	{
-		upvoteCount: 1239,
-		badgeLetter: 'A',
-		companyName: 'Adidas',
-		text: 'test test test',
-		daysAgo: 3,
-	},
 ];
 
 export default function FeedbackList() {
