@@ -1,3 +1,5 @@
+import { HashtagItem } from "./HashtagItem";
+
 type HashtagListProps = {
   companyList: string[];
 };
@@ -5,13 +7,9 @@ type HashtagListProps = {
 export default function HashtagList({ companyList }: HashtagListProps) {
   return (
     <ul className="hashtags">
-      {companyList.map((company) => {
-        return (
-          <li>
-            <button>#{company}</button>
-          </li>
-        );
-      })}
+      {companyList.map((company) => (
+        <HashtagItem company={company} />
+      ))}
     </ul>
   );
 }
