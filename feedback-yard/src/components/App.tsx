@@ -9,6 +9,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  const companyList = feedbackItems
+    .map((item) => item.company)
+    .filter((company, i, arr) => {
+      return arr.indexOf(company) === i;
+    });
+
   const handleAddToList = async (text: string) => {
     const companyName = text
       .split(" ")
@@ -71,7 +77,7 @@ function App() {
         feedbackItems={feedbackItems}
         handleAddToList={handleAddToList}
       />
-      <HashtagList />
+      <HashtagList companyList={companyList} />
     </div>
   );
 }
